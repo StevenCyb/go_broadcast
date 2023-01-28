@@ -61,12 +61,14 @@ func main() {
 	time.Sleep(time.Second)
 
 	go func() {
+		// count from 0 to 3
 		for counter := uint(0); counter <= 3; counter++ {
 			publisher.Publish(counterTopic, counter)
 			time.Sleep(time.Second)
 		}
 	}()
 
+	// count 4 to 8
 	for counter := uint(4); counter <= 8; counter++ {
 		publisher.Publish(counterTopic, counter)
 		time.Sleep(time.Second)
